@@ -1,11 +1,18 @@
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'vcc-ui';
 import { BASE_URL } from '../config';
 import { CarsSlider } from '../src/components/CarsSlider';
 import { CarProps, Car } from '../types/types';
 
 const HomePage: NextPage<CarProps> = ({ cars }) => {
+  const [type, setType] = useState('estate');
+
+  const filteredCars =
+    type === null
+      ? cars
+      : cars.filter(car => car.bodyType === type.toLowerCase());
+
   return (
     <View
       extend={({ theme }) => ({
@@ -13,7 +20,7 @@ const HomePage: NextPage<CarProps> = ({ cars }) => {
         margin: '2rem 1.5rem 0rem',
       })}
     >
-      <CarsSlider cars={cars} />{' '}
+      <CarsSlider cars={filteredCars} />{' '}
     </View>
   );
 };
