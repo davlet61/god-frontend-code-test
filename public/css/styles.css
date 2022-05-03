@@ -20,6 +20,10 @@ body {
   position: unset !important;
 }
 
+.filter-icon {
+  align-self: flex-end;
+}
+
 .card__info {
   display: flex;
   flex-direction: column;
@@ -49,7 +53,7 @@ body {
 }
 
 .slick-dots {
-  bottom: 3rem;
+  bottom: 0.5rem;
 }
 
 @media screen and (min-width: 768px) {

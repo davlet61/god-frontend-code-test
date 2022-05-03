@@ -7,6 +7,7 @@ import { PrevArrow } from './CustomPrevArrow';
 
 export const CarsSlider: React.FC<CarProps> = ({ cars }) => {
   const settings = {
+    infinite: false,
     dots: false,
     slidesToShow: 4,
     slidesToScroll: 1,
