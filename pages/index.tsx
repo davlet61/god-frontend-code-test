@@ -1,15 +1,25 @@
 import { GetStaticProps, NextPage } from 'next';
 import React, { useState } from 'react';
-import { IconButton, View } from 'vcc-ui';
+import { IconButton, View, SelectInput, Flex } from 'vcc-ui';
 import { BASE_URL } from '../config';
 import { CarsSlider } from '../src/components/CarsSlider';
-import { CarProps, Car } from '../types/types';
+import { FilterInput } from '../src/components/FilterInput';
+import { CarProps, Car, HandleFn, HandleChange } from '../types/types';
 
 const HomePage: NextPage<CarProps> = ({ cars }) => {
-  const [type, setType] = useState('suv');
+  const [type, setType] = useState('');
+  const [show, setShow] = useState(false);
+
+  const handleShow: HandleFn = () => {
+    setShow(prev => !prev);
+  };
+
+  const handleChangeInput: HandleChange = e => {
+    setType(e.target.value);
+  };
 
   const filteredCars =
-    type === null
+    type.length === 0
       ? cars
       : cars.filter(car => car.bodyType === type.toLowerCase());
 
@@ -23,10 +33,13 @@ const HomePage: NextPage<CarProps> = ({ cars }) => {
       <IconButton
         className="filter-icon"
         aria-label="Filter"
-        iconName="filter"
+        iconName={show ? 'navigation-close' : 'filter'}
         variant="filled"
-        onClick={() => {}}
+        onClick={handleShow}
       />
+      {show && (
+        <FilterInput type={type} handleChange={handleChangeInput} cars={cars} />
+      )}
       <CarsSlider cars={filteredCars} />{' '}
     </View>
   );

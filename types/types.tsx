@@ -9,3 +9,6 @@ export interface Car {
 export interface CarProps {
   cars: Car[];
 }
+
+export type HandleFn = () => void;
+export type HandleChange = (e: React.ChangeEvent<HTMLSelectElement>) => void;
