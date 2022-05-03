@@ -1,0 +1,59 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styles */
+body {
+  font-family: 'Volvo Novum', Arial, sans-serif;
+  margin-top: 1.5rem;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.container > div {
+  position: unset !important;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.custom-prev {
+  position: absolute;
+  right: 4rem;
+  top: 90%;
+  z-index: 1;
+  transform: scale(0.9);
+}
+
+.custom-next {
+  position: absolute;
+  right: 1rem;
+  top: 90%;
+  transform: scale(0.9);
+}
+
+.slick-dots {
+  bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .card__info {
+    flex-direction: row;
+  }
+}
