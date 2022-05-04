@@ -19,7 +19,7 @@ const HomePage: NextPage<CarProps> = ({ cars }) => {
   };
 
   const filteredCars =
-    type.length === 0
+    type.length === 0 || type === 'ALL'
       ? cars
       : cars.filter(car => car.bodyType === type.toLowerCase());
 
