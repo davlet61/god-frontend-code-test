@@ -21,6 +21,7 @@ export const FilterInput = ({
       onChange={handleChange}
       isValid={false}
     >
+      <option value='all'>ALL</option>
       {uniqueBodyTypes.map((element, i) => (
         <option key={i} value={element}>
           {element.toUpperCase()}
