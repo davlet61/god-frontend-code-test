@@ -15,13 +15,13 @@ export const CarsSlider: React.FC<CarProps> = ({ cars }) => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
         },
