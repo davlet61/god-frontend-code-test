@@ -7,7 +7,7 @@ import { FilterInput } from '../src/components/FilterInput';
 import { CarProps, Car, HandleFn, HandleChange } from '../types/types';
 
 const HomePage: NextPage<CarProps> = ({ cars }) => {
-  const [type, setType] = useState('ALL');
+  const [type, setType] = useState('all');
   const [show, setShow] = useState(false);
 
   const handleShow: HandleFn = () => {
@@ -17,10 +17,9 @@ const HomePage: NextPage<CarProps> = ({ cars }) => {
   const handleChangeInput: HandleChange = e => {
     setType(e.target.value);
   };
- 
 
   const filteredCars =
-    type === 'ALL'
+    type === 'all'
       ? cars
       : cars.filter(car => car.bodyType === type.toLowerCase());
 
